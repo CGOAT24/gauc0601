@@ -1,9 +1,27 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Commit from "../components/Commit.svelte";
 
 //rdvptrwjeiptwpes
+
+const response = await fetch(`https://api.github.com/repos/cgoat24/gauc0601/commits`);
+const commits = await response.json();
+
+for (const commit of commits) {
+    console.log(commit);
+}
 ---
 
 <Layout>
-
+    <div class="flex w-full flex-col">
+        <div class="divider divider-start font-bold">Infos</div>
+        <ul>
+            <li>CIP: GAUC0601</li>
+            <li>Nom: Chad Gauthier</li>
+        </ul>
+        <div class="divider divider-start font-bold">Changelog</div>
+        <ul class="timeline timeline-vertical">
+            {commits.map(commit => <Commit sha={commit.sha} message={commit.commit.message} date={commit.commit.author.date} url={commit.html_url}/>)}
+        </ul>
+    </div>
 </Layout>
