@@ -2,14 +2,9 @@
 import Layout from '../layouts/Layout.astro';
 import Commit from "../components/Commit.svelte";
 
-//rdvptrwjeiptwpes
-
 const response = await fetch(`https://api.github.com/repos/cgoat24/gauc0601/commits`);
 const commits = await response.json();
 
-for (const commit of commits) {
-    console.log(commit);
-}
 ---
 
 <Layout>
