@@ -9,5 +9,5 @@ import tailwind from '@astrojs/tailwind';
 export default defineConfig({
   integrations: [svelte(), tailwind()],
   site: "https://cgoat24.github.io/gauc0601",
-  base: "IGE511-tp1"
+  base: "gauc0601"
 });
