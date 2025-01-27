@@ -6,7 +6,10 @@
 
     const formatDate = (dt: string) => {
         const d = new Date(dt);
-        return `${d.toLocaleDateString()} ${d.toLocaleTimeString()}`;
+		const date = d.toLocaleDateString("fr-CA", {timeZone: "America/New_York"});
+		const time = d.toLocaleTimeString("fr-CA", { timeZone: "America/New_York" });
+        const formattedTime = time.replace(/\s+/g, "").replace(/min\d+s/, "");
+        return `${date} ${formattedTime}`;
     }
 </script>
 <li>
